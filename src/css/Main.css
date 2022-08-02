@@ -1,0 +1,23 @@
+.main{
+    width: 99vw;
+    min-height: 85vh;
+    margin: auto;
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: middle;
+}
+
+.sidebar{
+    min-width: 15%;
+    border: 2px solid black;
+}
+
+.catalogue{
+    min-width: 75%;
+    min-height: 100%;
+    margin: auto;
+    border: 2px solid black;
+}
