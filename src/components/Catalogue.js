@@ -34,7 +34,7 @@ function Catalogue() {
           loading ? "Loading" :
           data.map((item, key) => {
             return (
-              <Card item={item} key={key}/>
+              <Card item={item}/>
             )
           })
         }

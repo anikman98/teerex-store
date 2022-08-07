@@ -4,10 +4,12 @@ import Navbar from './Navbar';
 import Main from './Main';
 import Cart from './Cart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import CartState from '../context/cart/CartState'
+
 
 function App() {
   return (
-    
+    <CartState>
     <BrowserRouter>
       <div className="App">
         {/* Navbar */}
@@ -24,6 +26,7 @@ function App() {
         {/* cart */}
       </div>
     </BrowserRouter>
+    </CartState>
   );
 }
 

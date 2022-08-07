@@ -1,10 +1,10 @@
-import React from 'react'
+import {useContext} from 'react'
+import CartContext from '../context/cart/CartContext';
 
-function Card({item, key}) {
 
-    const handleAddToCart = (id) => {
-        console.log(id+"add to cart");
-    }
+function Card({item}) {
+
+    const cart = useContext(CartContext);
 
   return (
     <div className='card-item'>
@@ -18,7 +18,7 @@ function Card({item, key}) {
                     <h4>{item.currency}&nbsp;{item.price}</h4>
                 </div>
                 <div className="card-button">
-                    <button className='add-item-button' onClick={handleAddToCart(item.id)}>Add to Cart</button>
+                    <button className='add-item-button' onClick={() => {cart.setCart([...cart.cart, item])}}>Add to Cart</button>
                 </div>
             </div>
         </div>
