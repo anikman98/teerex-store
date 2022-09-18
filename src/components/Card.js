@@ -1,13 +1,13 @@
 import {useContext} from 'react'
 import CartContext from '../context/cart/CartContext';
-
+import '../css/Card.css';
 
 function Card({item}) {
 
     const cart = useContext(CartContext);
 
   return (
-    <div className='card-item'>
+    <div className='card'>
         <div className="card-item">
             <div className="card-image">
                 <img src={item.imageURL} alt={item.name} height="100"/>

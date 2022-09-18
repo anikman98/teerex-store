@@ -1,0 +1,17 @@
+.catalogue-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    width: 300px;
+    height: 200px;
+    margin: 1rem;
+    box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}
+

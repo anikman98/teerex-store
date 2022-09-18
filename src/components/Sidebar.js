@@ -1,8 +1,11 @@
 import React from 'react'
+import FilterOption from './FilterOption'
 
 function Sidebar() {
   return (
-    <div>Sidebar</div>
+    <div className='filter-main'>
+      <FilterOption />
+    </div>
   )
 }
 

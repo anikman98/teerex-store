@@ -16,8 +16,14 @@
 }
 
 .catalogue{
-    min-width: 75%;
-    min-height: 100%;
+    width: 75%;
+    height: 100%;
     margin: auto;
     border: 2px solid black;
+}
+
+@media screen and( max-width: 800px){
+    .filter-main{
+        visibility: none;
+    }
 }

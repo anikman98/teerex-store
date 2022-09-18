@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import Searchbar from './Searchbar';
-import Card from './Card'
+import Card from './Card';
+import '../css/Catalogue.css';
 
 
 function Catalogue() {
@@ -34,7 +35,7 @@ function Catalogue() {
           loading ? "Loading" :
           data.map((item, key) => {
             return (
-              <Card item={item}/>
+              <Card key={key} item={item}/>
             )
           })
         }
