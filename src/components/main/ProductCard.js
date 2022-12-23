@@ -2,7 +2,7 @@ import {useContext} from 'react'
 import CartContext from '../context/cart/CartContext';
 import '../css/Card.css';
 
-function Card({item}) {
+function ProductCard({item}) {
 
     const cart = useContext(CartContext);
 
@@ -26,4 +26,4 @@ function Card({item}) {
   )
 }
 
-export default Card
+export default ProductCard

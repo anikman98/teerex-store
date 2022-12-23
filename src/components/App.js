@@ -5,10 +5,12 @@ import Main from './Main';
 import Cart from './Cart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CartState from '../context/cart/CartState'
+import ProductState from '../context/product/ProductState';
 
 
 function App() {
   return (
+    <ProductState>
     <CartState>
     <BrowserRouter>
       <div className="App">
@@ -27,6 +29,7 @@ function App() {
       </div>
     </BrowserRouter>
     </CartState>
+    </ProductState>
   );
 }
 
