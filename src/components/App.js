@@ -6,11 +6,13 @@ import Cart from './cart/Cart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CartState from '../context/cart/CartState'
 import ProductState from '../context/product/ProductState';
+import FilterState from '../context/filter/FilterState';
 
 
 function App() {
   return (
     <ProductState>
+    <FilterState>
     <CartState>
     <BrowserRouter>
       <div className="App">
@@ -29,6 +31,7 @@ function App() {
       </div>
     </BrowserRouter>
     </CartState>
+    </FilterState>
     </ProductState>
   );
 }

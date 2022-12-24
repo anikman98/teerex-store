@@ -5,10 +5,10 @@ import ProductContext from "./ProductContext";
 const ProductState = (props) => {
 
     const [product, setProduct] = useState([]);
-    const [Result, setResult] = useState();
+    const [result, setResult] = useState();
 
     return (
-        <ProductContext.Provider value={{product, setProduct}}>
+        <ProductContext.Provider value={{product, setProduct, result, setResult}}>
             {props.children}
         </ProductContext.Provider>
     )

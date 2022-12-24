@@ -1,18 +1,16 @@
 import { useEffect, useState, useContext } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import Searchbar from './Searchbar';
 import ProductCard from './ProductCard';
 import ProductContext from '../../context/product/ProductContext';
 import '../../css/Catalogue.css';
+import FilterContext from '../../context/filter/FilterContext';
 
 function Catalogue() {
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
-  const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams);
-  // console.log(searchParams.get('search'));
 
   const products = useContext(ProductContext);
+  const filter = useContext(FilterContext);
 
   const fetchData = async () => {
     try{
@@ -28,13 +26,22 @@ function Catalogue() {
     }
   }
 
-   
+  const checkFilter = () => {
+    products.setResult(() => {
+      return products.product.filter((item) => {
+        return filter.colorFilter.includes(item.color) ? item : false
+      })
+    })
+  }
+     
 
   useEffect(() => {
-    if(products.product)
+    if(products.product.length === 0)
       fetchData();
+
+    checkFilter();
     
-  },[]);
+  },[filter]);
 
 
   return (
@@ -42,12 +49,19 @@ function Catalogue() {
       <Searchbar/>
       <div className="catalogue-cards">
         {
-          loading ? "Loading" :
-          products.product.map((item, key) => {
-            return (
-              <ProductCard key={key} item={item}/>
-            )
-          })
+          loading 
+          ? "Loading" 
+          : products.result.length > 0
+            ? products.result.map((item, key) => {
+              return (
+                <ProductCard key={key} item={item}/>
+              )
+              })
+            : products.product.map((item, key) => {
+              return (
+                <ProductCard key={key} item={item}/>
+              )
+              })
         }
       </div>
     </div>
