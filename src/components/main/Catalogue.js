@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import Searchbar from './Searchbar';
 import ProductCard from './ProductCard';
 import ProductContext from '../../context/product/ProductContext';
-import '../css/Catalogue.css';
+import '../../css/Catalogue.css';
 
 function Catalogue() {
   const [data, setData] = useState();

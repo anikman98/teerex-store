@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from './Sidebar';
 import Catalogue from './Catalogue';
-import '../css/Main.css';
+import '../../css/Main.css';
 
 function Main() {
   return (

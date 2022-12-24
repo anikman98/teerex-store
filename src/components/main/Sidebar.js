@@ -1,5 +1,5 @@
 import React from 'react'
-import FilterOption from './FilterOption'
+import FilterOption from '../filter/FilterOption'
 
 function Sidebar() {
   return (
