@@ -29,7 +29,17 @@ function Catalogue() {
   const checkFilter = () => {
     products.setResult(() => {
       return products.product.filter((item) => {
-        return filter.colorFilter.includes(item.color) ? item : false
+        // return filter.colorFilter.includes(item.color) ? item : false 
+        // return filter.genderFilter.includes(item.gender) ? item : false
+        // return filter.typeFilter.includes(item.type) ? item : false
+        // return () => {
+        //   let items = [];
+        //   for(let i=0; i<filter.priceFilter /2; i++){
+        //     if(filter.priceFilter[i] <= item.price && filter.priceFilter[i+1] >= item.price)
+        //       items.push(item);
+        //   }
+        //   return items;
+        // }
       })
     })
   }
