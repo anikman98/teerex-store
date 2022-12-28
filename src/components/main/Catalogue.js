@@ -1,16 +1,20 @@
 import { useEffect, useState, useContext } from 'react';
-import Searchbar from './Searchbar';
+import Searchbar from '../navbar/Searchbar';
 import ProductCard from './ProductCard';
 import ProductContext from '../../context/product/ProductContext';
 import '../../css/Catalogue.css';
 import FilterContext from '../../context/filter/FilterContext';
+import SearchContext from '../../context/search/SearchContext';
 
 function Catalogue() {
   // const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
 
+  let items = [];
+
   const products = useContext(ProductContext);
   const filter = useContext(FilterContext);
+  const search = useContext(SearchContext);
 
   const fetchData = async () => {
     try{
@@ -26,49 +30,67 @@ function Catalogue() {
     }
   }
 
+
   const checkFilter = () => {
-    products.setResult(() => {
-      return products.product.filter((item) => {
-        // return filter.colorFilter.includes(item.color) ? item : false 
-        // return filter.genderFilter.includes(item.gender) ? item : false
-        // return filter.typeFilter.includes(item.type) ? item : false
-        // return () => {
-        //   let items = [];
-        //   for(let i=0; i<filter.priceFilter /2; i++){
-        //     if(filter.priceFilter[i] <= item.price && filter.priceFilter[i+1] >= item.price)
-        //       items.push(item);
-        //   }
-        //   return items;
-        // }
+    items = products.product;
+    if(filter.colorFilter.length > 0){
+      items = items.filter((item) => {
+        return filter.colorFilter.includes(item.color) ? item : false
       })
-    })
+    }
+    if(filter.genderFilter.length > 0){
+      items = items.filter((item) => {
+        return filter.genderFilter.includes(item.gender) ? item : false
+      })
+    }
+    if(filter.typeFilter.length > 0){
+      items = items.filter(item => {
+        return filter.typeFilter.includes(item.type) ? item : false
+      })
+    } 
+    if(filter.priceFilter.length > 0){
+      items = items.filter(item => {
+        return filter.priceFilter[0] < item.price && filter.priceFilter[filter.priceFilter.length-1] >= item.price ? (item) => {console.log(item);return item} : false
+      })
+    }
+    products.setResult([...items]);
   }
-     
+
+  // const searchItems = () => {
+
+  // }   
 
   useEffect(() => {
-    if(products.product.length === 0)
-      fetchData();
-
-    checkFilter();
     
-  },[filter]);
+    checkFilter();
+    // searchItems();
+    
+  },[filter, search]);
 
+  useEffect(() => {
+    if(products.product.length === 0 || loading)
+      fetchData();
+  },[])
 
   return (
     <div className="catalogue-main">
-      <Searchbar/>
+      
       <div className="catalogue-cards">
         {
           loading 
-          ? "Loading" 
+          ? <h3>Loading...</h3>
           : products.result.length > 0
             ? products.result.map((item, key) => {
               return (
                 <ProductCard key={key} item={item}/>
               )
               })
-            : products.product.map((item, key) => {
-              return (
+            : filter.colorFilter.length > 0 || filter.typeFilter.length > 0 || filter.priceFilter.length > 0 || filter.genderFilter.length > 0
+              ?
+                <h3>No results for selected filter options...</h3>
+              :
+                products.product.map((item, key) => {
+                return (
                 <ProductCard key={key} item={item}/>
               )
               })

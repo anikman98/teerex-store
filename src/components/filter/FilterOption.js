@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import FilterContext from "../../context/filter/FilterContext"
+import '../../css/Sidebar.css'
 
 
 function Filter() {
@@ -7,7 +8,6 @@ function Filter() {
   const filter = useContext(FilterContext);
 
   const handleColorSelect = (e) => {
-    // console.log("value "+e.target.value);
     if(e.target.checked === true){
       filter.setColorFilter([...filter.colorFilter , e.target.value ])
     }
@@ -17,7 +17,6 @@ function Filter() {
           return item != e.target.value ? item : false
         })
       })
-      // console.log(colors);
     }
   }
 
@@ -41,7 +40,6 @@ function Filter() {
     }
     if(e.target.checked === false){
       let values = e.target.value.split(",")
-      console.log(values)
       filter.setPriceFilter(() => {
          return filter.priceFilter.filter((item) => {
           return values.includes(item) ? false : item
@@ -137,7 +135,7 @@ function Filter() {
             <label htmlFor="color1">&nbsp;Rs.251-450</label>
           </div>
           <div className="filter-option">
-            <input type="checkbox" name="color1" id="color1" value={"451,9999"} onChange={(e) => {handlePriceSelect(e)}}/>
+            <input type="checkbox" name="color1" id="color1" value={"451,999"} onChange={(e) => {handlePriceSelect(e)}}/>
             <label htmlFor="color1">&nbsp;Rs.451 & above</label>
           </div>
         </div>

@@ -6,20 +6,26 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 3rem;
     align-items: middle;
+    padding-top: 1rem;
 }
 
 .sidebar{
     min-width: 15%;
-    border: 2px solid black;
+    margin-left: 1.5rem;
+
+    /* border: 2px solid black; */
 }
 
 .catalogue{
-    width: 75%;
+    width: 80%;
     height: 100%;
-    margin: auto;
-    /* border: 2px solid black; */
+    /* margin: 0 2rem; */
+    
+    margin-x: auto;
+
 }
 
 @media screen and( max-width: 800px){

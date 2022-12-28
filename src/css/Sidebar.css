@@ -1,0 +1,32 @@
+.filter-main{
+    padding: 1.5rem 2rem;
+    box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.1);
+    border: 2px solid rgba(0,0,0,0.05);
+    border-radius: 5px;
+    height: 70vh;
+}
+
+.filter-text{
+    margin-left: 2px;
+    padding-bottom: 5px;
+}
+
+hr{
+    height: 1px;
+    background-color: rgb(228, 228, 228);
+    border: none;
+    margin-bottom: 10px;
+}
+
+.filter-section{
+    margin-left: 2px;
+    padding-bottom: 0.5rem;
+}
+
+.filter-header{
+    padding-bottom: 5px;
+}
+
+.filter-option{
+    padding: 0 0 2px 5px;
+}
