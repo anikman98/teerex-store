@@ -1,15 +1,15 @@
 .main{
-    width: 99vw;
+    width: 98vw;
     min-height: 85vh;
     margin: auto;
-    /* border: 2px solid blue; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 3rem;
+    justify-content: space-evenly;
+    gap: 4rem;
     align-items: middle;
     padding-top: 1rem;
+    overflow-x: hidden
 }
 
 .sidebar{
@@ -20,7 +20,7 @@
 }
 
 .catalogue{
-    width: 80%;
+    width: 75%;
     height: 100%;
     /* margin: 0 2rem; */
     

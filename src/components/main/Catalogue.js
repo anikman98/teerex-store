@@ -1,13 +1,12 @@
 import { useEffect, useState, useContext } from 'react';
-import Searchbar from '../navbar/Searchbar';
+import Searchbar from './Searchbar';
 import ProductCard from './ProductCard';
-import ProductContext from '../../context/product/ProductContext';
 import '../../css/Catalogue.css';
+import ProductContext from '../../context/product/ProductContext';
 import FilterContext from '../../context/filter/FilterContext';
 import SearchContext from '../../context/search/SearchContext';
 
 function Catalogue() {
-  // const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
 
   let items = [];
@@ -26,13 +25,13 @@ function Catalogue() {
       }
     }catch(error){
       setLoading(false);
-        console.log(error);
+      console.log(error);
     }
   }
 
 
-  const checkFilter = () => {
-    items = products.product;
+  const checkFilter = (items) => {
+    console.log("filter")
     if(filter.colorFilter.length > 0){
       items = items.filter((item) => {
         return filter.colorFilter.includes(item.color) ? item : false
@@ -56,44 +55,51 @@ function Catalogue() {
     products.setResult([...items]);
   }
 
-  // const searchItems = () => {
-
-  // }   
-
-  useEffect(() => {
-    
-    checkFilter();
-    // searchItems();
-    
-  },[filter, search]);
+  const searchItems = () => {
+    console.log("search")
+    items = products.product.filter((item) => {
+              return item.color.toLowerCase().includes(search.searchKeyword) || item.name.toLowerCase().includes(search.searchKeyword) || item.type.toLowerCase().includes(search.searchKeyword) ? item : false
+            });
+    filter.resetFilter();
+    console.log(items);
+    products.setResult([...items]);
+    console.log(products.result);
+  }   
 
   useEffect(() => {
     if(products.product.length === 0 || loading)
       fetchData();
-  },[])
+    if(search.searchKeyword.length > 0){
+      searchItems();
+    }
+    if(filter.colorFilter.length > 0 || filter.genderFilter.length > 0 || filter.typeFilter.length > 0 || filter.priceFilter.length > 0){
+      if(items.length > 0)
+        checkFilter(items);
+      else
+        checkFilter(products.product);
+    }
+  },[filter, search.searchKeyword]);
 
   return (
     <div className="catalogue-main">
-      
+      <Searchbar/>
       <div className="catalogue-cards">
         {
           loading 
           ? <h3>Loading...</h3>
-          : products.result.length > 0
+          : products.result
             ? products.result.map((item, key) => {
-              return (
-                <ProductCard key={key} item={item}/>
-              )
-              })
-            : filter.colorFilter.length > 0 || filter.typeFilter.length > 0 || filter.priceFilter.length > 0 || filter.genderFilter.length > 0
-              ?
-                <h3>No results for selected filter options...</h3>
-              :
-                products.product.map((item, key) => {
                 return (
-                <ProductCard key={key} item={item}/>
-              )
+                  <ProductCard key={key} item={item}/>
+                )
               })
+            : (filter.colorFilter.length > 0 || filter.typeFilter.length > 0 || filter.priceFilter.length > 0 || filter.genderFilter.length > 0 || search.searchKeyword.length > 0)
+              ? <h3>No results for selected search or filter options...</h3>
+              : products.product.map((item, key) => {
+                  return (
+                    <ProductCard key={key} item={item}/>
+                  )
+                })
         }
       </div>
     </div>

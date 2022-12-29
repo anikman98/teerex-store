@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import { Link } from "react-router-dom"
 import CartContext from '../../context/cart/CartContext';
 import '../../css/Navbar.css';
-import Searchbar from './Searchbar';
 
 function Navbar() {
 
@@ -12,7 +11,6 @@ function Navbar() {
     <div className="navbar-container">
       <div className="navbar">
           <h1>TeeRex</h1>
-          <Searchbar/>
           <div className="navbar-menu">
               <Link to="/" className="navbar-menu-link">Products</Link>
               <Link to="/cart" className="navbar-menu-link">

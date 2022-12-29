@@ -16,7 +16,7 @@ function Searchbar() {
       <div className="search-icon">
       <img src={SearchIcon} alt="Search"/>
       </div>
-      <input type="search" className='search-input' name='search' onChange={(e) => handleSearch(e)} />
+      <input type="search" className='search-input' name='search' placeholder='Search for products...' onChange={(e) => handleSearch(e)} />
     </div>
   )
 }

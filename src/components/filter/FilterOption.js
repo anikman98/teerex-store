@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useContext } from "react"
 import FilterContext from "../../context/filter/FilterContext"
 import '../../css/Sidebar.css'
