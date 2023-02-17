@@ -13,7 +13,7 @@ function Navbar() {
           <h1>TeeRex</h1>
           <div className="navbar-menu">
               <Link to="/" className="navbar-menu-link">Products</Link>
-              <Link to="/cart" className="navbar-menu-link">
+              <Link to="/cart" className="navbar-menu-link" id='cart'>
                   Cart
                   <div className="cart-badge">
                       <span>{cart.cart.length}</span>    

@@ -41,3 +41,21 @@
 .search-input:focus{
     outline: none;
 }
+
+.filter-button{
+    display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .search-bar{
+        width: auto;
+        margin-bottom: 1rem;
+    }
+
+    .filter-button{
+        display: block;
+        background: transparent;
+        border: none;
+    }
+}

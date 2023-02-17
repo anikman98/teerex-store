@@ -28,8 +28,25 @@
 
 }
 
-@media screen and( max-width: 800px){
+
+.active{
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+
+    .main{
+        width: auto;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+    }
+
     .filter-main{
-        visibility: none;
+        display: block;
+    }
+
+    .sidebar{
+        display: none;
     }
 }

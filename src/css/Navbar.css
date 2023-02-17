@@ -10,7 +10,6 @@
     min-height: 50px;
     margin: auto;
     padding: 1rem;
-    background-color: rgb(255, 255, 255);
 }
 
 .navbar > h1{
@@ -54,4 +53,20 @@
     vertical-align: middle;
 }
 
+#cart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.2rem;
+}
 
+
+@media screen and (max-width: 786px){
+    .navbar{
+        padding: 0;
+        padding-bottom: 1rem;
+    }
+    .navbar-menu-link{
+        font-size: 1.1rem;
+    }
+}

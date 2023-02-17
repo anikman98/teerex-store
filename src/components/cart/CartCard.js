@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../../css/Cart.css';
+import CartContext from '../../context/cart/CartContext';
 
 const CartCard = ({product}) => {
     // console.log(product)
 
-    
+    const cart = useContext(CartContext);
+
     const deleteProduct = () => {
-        // console.log(product);
+        let products = cart.cart.filter(item => item.id === product.id ? false : item);
+        cart.setCart(products);
+    }
+
+    const decreaseItem = () => {
+        let products = cart.cart.map(item => {
+            if(item.id === product.id){
+                item.itemCount > 1 ? item.itemCount -= 1 : alert("Item quantity should be more than 0");
+            }
+            return item;
+        });
+        cart.setCart(products);
+    }
+
+    const increaseItem = () => {
+        let products = cart.cart.map(item => {
+            if(item.id === product.id){
+                item.itemCount < item.quantity ? item.itemCount += 1 : alert("Only "+item.quantity+" pieces in stock!");
+            }
+            return item;
+        });
+        cart.setCart(products);
     }
 
 
@@ -26,9 +49,13 @@ const CartCard = ({product}) => {
             </div>
             <div className="product-action">
                 <div className="product-quantity">
+                    <h5>Quantity: </h5>
+                    <button onClick={decreaseItem}>-</button><span> {product.itemCount} </span><button onClick={increaseItem}>+</button>
+                    <div className="quantity-action">
+                    </div>
                 </div>
                 <div className="product-delete">
-                    <button onClick={deleteProduct}>Delete</button>
+                    <button onClick={deleteProduct}>Remove item</button>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 .card-image{
     display: flex;
     justify-content: center;
+    flex: wrap;
 }
 
 .card-image img{
@@ -20,6 +21,7 @@
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    flex: wrap;
 }
 
 .card-button button{

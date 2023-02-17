@@ -7,6 +7,7 @@ const FilterState = (props) => {
     const [genderFilter, setGenderFilter] = useState([]);
     const [priceFilter, setPriceFilter] = useState([]);
     const [typeFilter, setTypeFilter] = useState([]);
+    const [filterDisplay, setFilterDisplay] = useState(true);
 
     const resetFilter = () => {
         setColorFilter([]);
@@ -16,7 +17,7 @@ const FilterState = (props) => {
     }
 
     return (
-        <FilterContext.Provider value={{colorFilter, setColorFilter, genderFilter, setGenderFilter, priceFilter, setPriceFilter, typeFilter, setTypeFilter, resetFilter}}>
+        <FilterContext.Provider value={{colorFilter, setColorFilter, genderFilter, setGenderFilter, priceFilter, setPriceFilter, typeFilter, setTypeFilter, resetFilter, filterDisplay, setFilterDisplay}}>
             {props.children}
         </FilterContext.Provider>
     )
