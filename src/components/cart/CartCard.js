@@ -51,8 +51,6 @@ const CartCard = ({product}) => {
                 <div className="product-quantity">
                     <h5>Quantity: </h5>
                     <button onClick={decreaseItem}>-</button><span> {product.itemCount} </span><button onClick={increaseItem}>+</button>
-                    <div className="quantity-action">
-                    </div>
                 </div>
                 <div className="product-delete">
                     <button onClick={deleteProduct}>Remove item</button>
