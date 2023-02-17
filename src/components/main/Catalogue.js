@@ -65,7 +65,7 @@ function Catalogue() {
     products.setResult([...items]);
     console.log(products.result);
   }   
-
+   
   useEffect(() => {
     if(products.product.length === 0 || loading)
       fetchData();
@@ -78,6 +78,7 @@ function Catalogue() {
       else
         checkFilter(products.product);
     }
+    // eslint-disable-next-line 
   },[filter, search.searchKeyword]);
 
   return (
