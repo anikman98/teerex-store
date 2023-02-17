@@ -4,7 +4,11 @@ import '../../css/Card.css';
 
 function ProductCard({item}) {
 
-    const cart = useContext(CartContext);
+  const cart = useContext(CartContext);
+
+  const addToCart = () => {
+    cart.setCart([...cart.cart, item])
+  }
 
   return (
     <div className='card'>
@@ -18,7 +22,7 @@ function ProductCard({item}) {
                     <h4>{item.currency}&nbsp;{item.price}</h4>
                 </div>
                 <div className="card-button">
-                    <button className='add-item-button' onClick={() => {cart.setCart([...cart.cart, item])}}>Add to Cart</button>
+                    <button className='add-item-button' onClick={addToCart}>Add to Cart</button>
                 </div>
             </div>
         </div>
