@@ -7,7 +7,7 @@ const FilterState = (props) => {
     const [genderFilter, setGenderFilter] = useState([]);
     const [priceFilter, setPriceFilter] = useState([]);
     const [typeFilter, setTypeFilter] = useState([]);
-    const [filterDisplay, setFilterDisplay] = useState(true);
+    const [filterDisplay, setFilterDisplay] = useState(false);
 
     const resetFilter = () => {
         setColorFilter([]);

@@ -10,6 +10,7 @@ const CartTotal = () => {
         let total = 0;
         cart.cart.map(item => {
             total += item.itemCount*item.price;
+            return item;
         })
         return total;
     }

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useContext } from "react"
 import FilterContext from "../../context/filter/FilterContext"
 import '../../css/Sidebar.css'
@@ -15,7 +14,7 @@ function Filter() {
     if(e.target.checked === false){
       filter.setColorFilter(() => {
          return filter.colorFilter.filter((item) => {
-          return item != e.target.value ? item : false
+          return item !== e.target.value ? item : false
         })
       })
     }
@@ -28,7 +27,7 @@ function Filter() {
     if(e.target.checked === false){
       filter.setGenderFilter(() => {
          return filter.genderFilter.filter((item) => {
-          return item != e.target.value ? item : false
+          return item !== e.target.value ? item : false
         })
       })
     }
@@ -56,7 +55,7 @@ function Filter() {
     if(e.target.checked === false){
       filter.setTypeFilter(() => {
          return filter.typeFilter.filter((item) => {
-          return item != e.target.value ? item : false
+          return item !== e.target.value ? item : false
         })
       })
     }

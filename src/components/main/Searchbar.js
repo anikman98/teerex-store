@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import SearchContext from '../../context/search/SearchContext'
 import '../../css/Searchbar.css'
 import SearchIcon from '../../images/search.png'
@@ -17,12 +17,6 @@ function Searchbar() {
   const handleClickOnFilter = () => {
     filter.setFilterDisplay(!filter.filterDisplay);
   }
-
-  useEffect(()=>{
-    if(window.innerWidth < 786){
-        filter.setFilterDisplay(false);
-    }
-  },[window.innerWidth]);
 
   return (
     <>
