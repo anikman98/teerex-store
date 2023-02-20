@@ -58,7 +58,7 @@ function Catalogue() {
   const searchItems = () => {
     console.log("search")
     items = products.product.filter((item) => {
-              return item.color.toLowerCase().includes(search.searchKeyword) || item.name.toLowerCase().includes(search.searchKeyword) || item.type.toLowerCase().includes(search.searchKeyword) ? item : false
+              return item.color.toLowerCase().includes(search.searchKeyword.toLowerCase()) || item.name.toLowerCase().includes(search.searchKeyword.toLowerCase()) || item.type.toLowerCase().includes(search.searchKeyword.toLowerCase()) ? item : false
             });
     filter.resetFilter();
     console.log(items);
